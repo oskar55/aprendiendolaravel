@@ -23,6 +23,7 @@ class AddTagsTable extends Migration
         //las tablas pivot no llevan modelos
         Schema::create('article_tag', function(Blueprint $table){
             $table->increments('id');
+            
             $table->integer('article_id')->unsigned();
             $table->integer('tag_id')->unsigned();
 

@@ -17,18 +17,24 @@
 // 	echo "su nobre es el siguiente: ".$nombre;
 // });
 
-
-//grupo de rutas con prefijo
-Route::group(['prefix'=>'articles'],function(){
-	
-	Route::get('view/{id}',[
-		'uses' => 'TestController@view',
-		'as' => 'articlesView'
-	]); 
-
-});
-
-
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::group(['prefix' => 'admin'], function(){
+	Route::resource('users', 'UsersController');
+});
+
+
+// //grupo de rutas con prefijo
+// Route::group(['prefix'=>'articles'],function(){
+	
+// 	Route::get('view/{id}',[
+// 		'uses' => 'TestController@view',
+// 		'as' => 'articlesView'
+// 	]); 
+
+// });
+
+
