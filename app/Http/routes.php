@@ -11,6 +11,21 @@
 |
 */
 
+
+//rutas con parametros en la url
+// Route::get('articulos/{nombre?}', function($nombre="no coloco nombre"){
+// 	echo "su nobre es el siguiente: ".$nombre;
+// });
+
+
+//grupo de rutas con prefijo
+Route::group(['prefix'=>'articles'],function(){
+	Route::get('view/{article?}', function ($article = "vacio") {
+	    echo $article;
+	});	
+});
+
+
 Route::get('/', function () {
     return view('welcome');
 });
