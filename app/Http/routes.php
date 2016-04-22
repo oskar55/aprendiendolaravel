@@ -12,29 +12,25 @@
 */
 
 
-//rutas con parametros en la url
-// Route::get('articulos/{nombre?}', function($nombre="no coloco nombre"){
-// 	echo "su nobre es el siguiente: ".$nombre;
-// });
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 
 Route::group(['prefix' => 'admin'], function(){
+
 	Route::resource('users', 'UsersController');
+	Route::get('users/{id}/destroy', [
+		'uses' => 'UsersController@destroy',
+		'as' => 'admin.users.destroy'
+	]);
+
+	//categorias
+	Route::resource('categories', 'CategoriesController');
+	Route::get('categories/{id}/destroy', [
+		'uses' => 'CategoriesController@destroy',
+		'as' => 'admin.categories.destroy'
+	]);
+
+
 });
-
-
-// //grupo de rutas con prefijo
-// Route::group(['prefix'=>'articles'],function(){
-	
-// 	Route::get('view/{id}',[
-// 		'uses' => 'TestController@view',
-// 		'as' => 'articlesView'
-// 	]); 
-
-// });
-
-

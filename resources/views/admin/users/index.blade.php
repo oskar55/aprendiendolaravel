@@ -1,7 +1,7 @@
 @extends('admin.template.main')
 
 
-@section('title','Lista de los usuarios')
+@section('title','Lista de usuarios')
 
 
 @section('content')
@@ -23,7 +23,10 @@
 						<td> {{ $user->name }} </td>
 						<td> {{ $user->email }} </td>				
 						<td> {{ $user->type }} </td>
-						<td> <a href="" class="btn btn-danger"></a><a href="" class="btn btn-warning"></a> </td>
+						<td> 
+							<a href="{{ route('admin.users.edit',$user->id) }}" class="btn btn-warning glyphicon glyphicon-pencil"></a> 
+							<a href="{{ route('admin.users.destroy',$user->id)}}" class="btn btn-danger glyphicon glyphicon-remove"></a>
+						</td>
 					</tr>
 				@endforeach
 
