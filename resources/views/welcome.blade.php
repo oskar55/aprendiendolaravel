@@ -8,8 +8,8 @@
 @section('content')
 <div class="panel panel-default">
   <div class="panel-body">
-    	<h1>HOLA PRUEBA DE BLADE CON BOOTSTRAP CSS</h1>
-    	<a href="" class="btn btn-success">BOTON EN BOOTSTRAP</a>
+    	<h1>GESTOR DE CONTENIDO WEB</h1>
+    	<a href=" {{ route('admin.auth.login')}} " class="btn btn-success">Ingresar</a>
     </div>
 </div>
 @endsection
